@@ -52,4 +52,4 @@ sudo systemctl start grafana-server
 If you'd like to contribute to the development of this monitoring tool, please feel free to submit pull requests or open issues on the repository. We welcome contributions from the community!
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE]() file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/GoutamVerma/ETH-India-Fellowship-3.0/blob/main/License.txt) file for details.
