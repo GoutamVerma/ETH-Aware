@@ -19,7 +19,7 @@ To use the Nethermind Node Monitoring Tool, follow these steps:
 
 1. Clone the repository to your local machine:
 ```bash
-pip install foobar
+https://github.com/GoutamVerma/ETH-India-Fellowship-3.0.git
 ```
 2. Install Grafana and Prometheus on your server. You can follow the installation instructions on their respective websites:
     
