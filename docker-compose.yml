@@ -1,0 +1,80 @@
+version: "3.5"
+
+services:
+
+    prometheus:
+        image: prom/prometheus
+        container_name: prometheus
+        volumes:
+            - ./prometheus/:/etc/prometheus/
+            - prometheus_data:/prometheus
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+            - '--storage.tsdb.path=/prometheus'
+            - '--web.console.libraries=/etc/prometheus/console_libraries'
+            - '--web.console.templates=/etc/prometheus/consoles'
+            - '--storage.tsdb.retention=200h'
+            - '--web.enable-lifecycle'
+        restart: unless-stopped
+        expose:
+            - 9090
+        ports:
+            - "9090:9090"
+        networks:
+            - metrics
+
+
+    pushgateway:
+        image: prom/pushgateway
+        container_name: pushgateway
+        restart: unless-stopped
+        expose:
+            - 9091
+        ports:
+            - "9091:9091"
+        networks:
+            - metrics
+
+    node-exporter:
+        image: prom/node-exporter
+        container_name: node-exporter
+        restart: unless-stopped
+        expose:
+            - 9100
+        ports:
+            - "9100:9100"
+        networks:
+            - metrics
+
+
+     
+    grafana:
+        image: grafana/grafana
+        container_name: grafana
+        restart: unless-stopped
+        expose:
+            - 3000
+        ports:
+            - "3000:3000"
+        networks:
+            - metrics
+        volumes:
+            - ./grafana/:/etc/grafana/provisioning/ 
+
+    nethermind:
+        image: nethermind/nethermind
+        container_name: nethermind
+        restart: unless-stopped
+        command: '--config goerli --Metrics.Enabled true'
+        network_mode: host
+        volumes:
+            - ./nethermind_db/:/nethermind/nethermind_db/
+            - ./keystore/:/nethermind/keystore/
+            - ./logs/:/nethermind/logs/
+networks:
+    metrics:
+        driver: bridge
+
+volumes:
+    prometheus_data: {}
+
