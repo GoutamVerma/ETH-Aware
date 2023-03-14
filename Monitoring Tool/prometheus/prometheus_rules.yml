@@ -7,6 +7,17 @@ groups:
       - record: node_filesystem_free_percent
         expr: 100 * node_filesystem_free_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"}
 
+  - name: node_exporter_rules
+    rules:
+      - alert: NodeExporterDown
+        expr: up{job="node_exporter"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Node Exporter is down"
+          description: "Node exporter has been down for more than 1 minute"
+  
   - name: alert_rules
     rules:
       - alert: InstanceDown
@@ -24,3 +35,4 @@ groups:
         annotations:
           summary: "Instance [{{ $labels.instance }}] has 10% or less Free disk space"
           description: "[{{ $labels.instance }}] has only {{ $value }}% or less free."
+     
