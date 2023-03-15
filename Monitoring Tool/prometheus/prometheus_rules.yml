@@ -36,3 +36,13 @@ groups:
           summary: "Instance [{{ $labels.instance }}] has 10% or less Free disk space"
           description: "[{{ $labels.instance }}] has only {{ $value }}% or less free."
      
+  - name: pushgateway_rules
+    rules:
+      - alert: PushgatewayDown
+        expr: up{job="pushgateway"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Pushgateway is down"
+          description: "Pushgateway has been down for more than 1 minute"
