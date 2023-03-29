@@ -1,26 +1,164 @@
 groups:
-  - name: custom_rules
-    rules:
-      - record: node_memory_MemFree_percent
-        expr: 100 - (100 * node_memory_MemFree_bytes / node_memory_MemTotal_bytes)
 
-      - record: node_filesystem_free_percent
-        expr: 100 * node_filesystem_free_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"}
+- name: InstanceDown
+  rules:
+  - alert: NodeExporterDown
+    expr: up{job="node_exporter"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Node Exporter is down"
+      description: "Node exporter has been down for more than 1 minute"
+  
+  - alert: PushgatewayDown
+    expr: up{job="pushgateway"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Pushgateway is down"
+      description: "Pushgateway has been down for more than 1 minute"
 
-  - name: alert_rules
-    rules:
-      - alert: InstanceDown
-        expr: up == 0
-        for: 1m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Instance [{{ $labels.instance }}] down"
-          description: "[{{ $labels.instance }}] of job [{{ $labels.job }}] has been down for more than 1 minute."
-      - alert: DiskSpaceFree10Percent
-        expr: node_filesystem_free_percent <= 10
-        labels:
-          severity: warning
-        annotations:
-          summary: "Instance [{{ $labels.instance }}] has 10% or less Free disk space"
-          description: "[{{ $labels.instance }}] has only {{ $value }}% or less free."
+  - alert: GrafanaDown
+    expr: up{job="grafana"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "grafana is down"
+      description: "grafana has been down for more than 1 minute"
+
+  - alert: NethermindDown
+    expr: pushgateway_http_requests_total{job="pushgateway", instance="pushgateway:9091", handler="/metrics/job/nethermind"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Nethermind job has not pushed any metrics"
+      description: "The Nethermind job has not pushed any metrics to Pushgateway for the last 1 minute."
+
+
+- name: node_exporter_alerts
+  rules:
+  - alert: HighCPUUsage
+    expr: 100 * (1 - avg(irate(node_cpu_seconds_total{mode="idle"}[5m])) by (instance)) > 90
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High CPU usage on {{ $labels.instance }}"
+      description: "{{ $labels.instance }} has high CPU usage"
+      
+  - alert: HighMemoryUsage
+    expr: (node_memory_MemTotal_bytes - node_memory_MemFree_bytes - node_memory_Buffers_bytes - node_memory_Cached_bytes) / node_memory_MemTotal_bytes * 100 > 80
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High memory usage on {{ $labels.instance }}"
+      description: "{{ $labels.instance }} has high memory usage"
+  
+  - alert: HostOutOfMemory
+    expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host out of memory (instance {{ $labels.instance }})
+      description: Node memory is filling up (< 10% left)\n  VALUE = {{ $value }}
+
+  - alert: HostMemoryUnderMemoryPressure
+    expr: rate(node_vmstat_pgmajfault[1m]) > 1000
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host memory under memory pressure (instance {{ $labels.instance }})
+      description: The node is under heavy memory pressure. High rate of major page faults\n  VALUE = {{ $value }}
+
+  - alert: HostUnusualNetworkThroughputIn
+    expr: sum by (instance) (rate(node_network_receive_bytes_total[2m])) / 1024 / 1024 > 100
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host unusual network throughput in (instance {{ $labels.instance }})
+      description: Host network interfaces are probably receiving too much data (> 100 MB/s)\n  VALUE = {{ $value }}
+
+  - alert: HostOutOfDiskSpace
+    expr: (node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes < 10 and ON (instance, device, mountpoint) node_filesystem_readonly == 0
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host out of disk space (instance {{ $labels.instance }})
+      description: Disk is almost full (< 10% left)\n  VALUE = {{ $value }}
+
+  - alert: HostDiskWillFillIn24Hours
+    expr: (node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes < 10 and ON (instance, device, mountpoint) predict_linear(node_filesystem_avail_bytes{fstype!~"tmpfs"}[1h], 24 * 3600) < 0 and ON (instance, device, mountpoint) node_filesystem_readonly == 0
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host disk will fill in 24 hours (instance {{ $labels.instance }})
+      description: Filesystem is predicted to run out of space within the next 24 hours at current write rate\n  VALUE = {{ $value }}
+
+  - alert: HostInodesWillFillIn24Hours
+    expr: node_filesystem_files_free{mountpoint ="/rootfs"} / node_filesystem_files{mountpoint="/rootfs"} * 100 < 10 and predict_linear(node_filesystem_files_free{mountpoint="/rootfs"}[1h], 24 * 3600) < 0 and ON (instance, device, mountpoint) node_filesystem_readonly{mountpoint="/rootfs"} == 0
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host inodes will fill in 24 hours (instance {{ $labels.instance }})
+      description: Filesystem is predicted to run out of inodes within the next 24 hours at current write rate\n  VALUE = {{ $value }}
+
+  - alert: HostHighCpuLoad
+    expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 80
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host high CPU load (instance {{ $labels.instance }})
+      description: CPU load is > 80%\n  VALUE = {{ $value }}
+
+  - alert: HostCpuStealNoisyNeighbor
+    expr: avg by(instance) (rate(node_cpu_seconds_total{mode="steal"}[5m])) * 100 > 10
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host CPU steal noisy neighbor (instance {{ $labels.instance }})
+      description: CPU steal is > 10%. A noisy neighbor is killing VM performances or a spot instance may be out of credit.\n  VALUE = {{ $value }}
+
+  - alert: HostSystemdServiceCrashed
+    expr: node_systemd_unit_state{state="failed"} == 1
+    for: 0m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host SystemD service crashed (instance {{ $labels.instance }})
+      description: SystemD service crashed\n  VALUE = {{ $value }}
+
+  - alert: HostPhysicalComponentTooHot
+    expr: node_hwmon_temp_celsius > 75
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host physical component too hot (instance {{ $labels.instance }})
+      description: Physical hardware component too hot\n  VALUE = {{ $value }}
+
+  - alert: HostNodeOvertemperatureAlarm
+    expr: node_hwmon_temp_crit_alarm_celsius == 1
+    for: 0m
+    labels:
+      severity: critical
+    annotations:
+      summary: Host node overtemperature alarm (instance {{ $labels.instance }})
+      description: Physical node temperature alarm triggered\n  VALUE = {{ $value }}
+      
+      groups:
+
+  
+
