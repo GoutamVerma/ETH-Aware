@@ -6,7 +6,8 @@ The Nethermind Node Monitoring Tool is a collection of open-source software that
 
 - Grafana: A popular open-source dashboard and visualization platform.
 - Prometheus: A powerful open-source monitoring and alerting toolkit.
-- Grafana Agent: A lightweight agent that collects metrics and sends them to Prometheus.
+- Node Exporter: Node Exporter is a Prometheus exporter that collects hardware and operating system metrics from a target system.
+- Alertmanager : Alertmanager is a component of the Prometheus monitoring system that manages and sends alerts from Prometheus to various external systems, such as email, PagerDuty, or Slack.
 
 ## Features
 This monitoring tool provides the following features:
