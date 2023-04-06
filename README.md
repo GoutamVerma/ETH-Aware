@@ -1,7 +1,7 @@
 # EthAware
 ![logo](https://user-images.githubusercontent.com/66783850/230303630-294be86b-5e90-4a3a-bcfa-9b5b06648d42.png)
 
-This is monitoring tool designed to monitor a Nethermind node using Grafana, Prometheus, and Alertmanager. It includes a pre-built system usage metrics dashboard in JSON format and configuration files for Grafana Agent and Prometheus.
+This is monitoring tool designed to monitor a Nethermind node using Grafana, Prometheus, and Alertmanager. It includes a pre-built system usage metrics dashboard in JSON format and configuration files for Grafana, Alertmanager, Node Exporter and Prometheus.
 
 ## Ethereum Node Monitoring Tool
 The Nethermind Node Monitoring Tool is a collection of open-source software that can be used to monitor the performance and health of a Nethermind node. This tool includes:
