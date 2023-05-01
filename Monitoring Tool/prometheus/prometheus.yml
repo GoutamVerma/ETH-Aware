@@ -1,23 +1,18 @@
 global:
-  scrape_interval:     5s
-  evaluation_interval: 5s
-  
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+
 rule_files:
    - "prometheus_rules.yml"  
 
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets: ['alertmanager:9093']
-
 scrape_configs:
-  - job_name: 'pushgateway'
-    honor_labels: true
+  - job_name: "node"
     static_configs:
-    - targets: ['pushgateway:9091']
+      - targets: ["localhost:9100"]
+      
 
-  - job_name: 'node-exporter'
-    honor_labels: true
-    static_configs:
-    - targets: ['node-exporter:9100']
-
+remote_write:
+- url: <Your Metrics instance remote_write endpoint>
+  basic_auth:
+    username: <username>
+    password: <API key or password>
