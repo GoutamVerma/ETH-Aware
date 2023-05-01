@@ -24,17 +24,6 @@ services:
             - metrics
 
 
-    pushgateway:
-        image: prom/pushgateway
-        container_name: pushgateway
-        restart: unless-stopped
-        expose:
-            - 9091
-        ports:
-            - "9091:9091"
-        networks:
-            - metrics
-
     node-exporter:
         image: prom/node-exporter
         container_name: node-exporter
@@ -46,44 +35,9 @@ services:
         networks:
             - metrics
 
-    alertmanager:
-        image: prom/alertmanager
-        container_name: alertmanager
-        restart: unless-stopped
-        expose:
-            - 9093
-        ports:
-            - "9093:9093"
-        networks:
-            - metrics
-     
-    grafana:
-        image: grafana/grafana
-        container_name: grafana
-        restart: unless-stopped
-        expose:
-            - 3000
-        ports:
-            - "3000:3000"
-        networks:
-            - metrics
-        volumes:
-            - ./grafana/:/etc/grafana/provisioning/ 
-
-    nethermind:
-        image: nethermind/nethermind
-        container_name: nethermind
-        restart: unless-stopped
-        command: '--config goerli --Metrics.Enabled true'
-        network_mode: host
-        volumes:
-            - ./nethermind_db/:/nethermind/nethermind_db/
-            - ./keystore/:/nethermind/keystore/
-            - ./logs/:/nethermind/logs/
 networks:
     metrics:
         driver: bridge
 
 volumes:
     prometheus_data: {}
-
