@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM",
-      "label": "grafanacloud-goutamverma84009-prom",
+      "name": "DS_PROMETHEUS",
+      "label": "prometheus",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -97,7 +97,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -157,7 +157,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_head_header{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -173,7 +173,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -233,7 +233,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "txpool_pending{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -253,7 +253,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -294,7 +294,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "txpool_pending{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -306,7 +306,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "txpool_queued{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -318,7 +318,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "txpool_local{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -365,7 +365,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -406,7 +406,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_head_header{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -418,7 +418,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_head_receipt{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -430,7 +430,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_head_block{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -473,7 +473,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -533,7 +533,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_head_receipt{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -549,7 +549,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -609,7 +609,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "txpool_queued{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -625,7 +625,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -685,7 +685,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_head_block{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -701,7 +701,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -761,7 +761,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "txpool_local{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -781,7 +781,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -824,7 +824,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_execution{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -836,7 +836,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_validation{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -849,7 +849,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_write{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -862,7 +862,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_account_reads{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -874,7 +874,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_account_updates{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -886,7 +886,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_account_hashes{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -898,7 +898,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_account_commits{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -910,7 +910,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_storage_reads{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -922,7 +922,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_storage_updates{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -934,7 +934,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_storage_hashes{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -946,7 +946,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "chain_storage_commits{quantile=\"$quantile\", instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -993,7 +993,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1036,7 +1036,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_valid{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1048,7 +1048,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_invalid{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1060,7 +1060,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_underpriced{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1073,7 +1073,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_pending_discard{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1086,7 +1086,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_pending_replace{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1098,7 +1098,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_pending_ratelimit{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1110,7 +1110,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_pending_nofunds{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1122,7 +1122,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_queued_discard{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1135,7 +1135,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_queued_replace{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1148,7 +1148,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_queued_ratelimit{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1161,7 +1161,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(txpool_queued_nofunds{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1235,7 +1235,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1276,7 +1276,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(trie_memcache_clean_read{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1289,7 +1289,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(trie_memcache_clean_write{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1337,7 +1337,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1378,7 +1378,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(trie_memcache_gc_size{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1391,7 +1391,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(trie_memcache_flush_size{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1404,7 +1404,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(trie_memcache_commit_size{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1477,7 +1477,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1518,7 +1518,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(eth_db_chaindata_disk_read{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1530,7 +1530,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(eth_db_chaindata_disk_write{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1542,7 +1542,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(eth_db_chaindata_ancient_read{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1554,7 +1554,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "rate(eth_db_chaindata_ancient_write{instance=~\"$instance\", job=~\"$job\"}[1m])",
           "format": "time_series",
@@ -1601,7 +1601,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1642,7 +1642,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "eth_db_chaindata_disk_read{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -1654,7 +1654,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "eth_db_chaindata_disk_write{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -1666,7 +1666,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "eth_db_chaindata_ancient_read{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -1678,7 +1678,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "eth_db_chaindata_ancient_write{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -1725,7 +1725,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -1768,7 +1768,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "eth_db_chaindata_disk_size{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -1780,7 +1780,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "eth_db_chaindata_ancient_size{instance=~\"$instance\", job=~\"$job\"}",
           "format": "time_series",
@@ -1870,7 +1870,7 @@
         "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_GRAFANACLOUD-GOUTAMVERMA84009-PROM}"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(chain_head_block{}, instance)",
         "hide": 0,
