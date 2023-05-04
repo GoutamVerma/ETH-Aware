@@ -23,7 +23,8 @@ fi
 echo "Which Ethereum client are you using?"
 echo "1. Nethermind"
 echo "2. Geth"
-echo "3. Other"
+echo "3. Besu"
+echo "4. Other"
 
 read -p "Enter your choice: " choice
 
@@ -89,7 +90,37 @@ remote_write:
 EOF
 elif [ $choice -eq 3 ]
 then
-  echo "You selected Other"
+  echo "You selected Besu"
+  # Prompt user for remote write URL, username, and password
+  read -p "Enter remote write URL: " remote_write_url
+  read -p "Enter username for remote write: " remote_write_username
+  read -s -p "Enter password for remote write: " remote_write_password
+  echo ""
+  # Create Prometheus configuration file
+  cat > ./prometheus-2.44.0-rc.1.linux-amd64/prometheus.yml <<EOF
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+scrape_configs:
+  - job_name: "node"
+    static_configs:
+      - targets: ["localhost:9100"]
+  
+  - job_name: besu
+    static_configs:
+    - targets: ["localhost:9545"]  
+    metrics_path: /metrics
+    
+remote_write:
+- url: ${remote_write_url}
+  basic_auth:
+    username: ${remote_write_username}
+    password: ${remote_write_password}
+EOF
+elif [ $choice -eq 4 ]
+then
+  echo "You selected other"
   # Prompt user for remote write URL, username, and password
   read -p "Enter remote write URL: " remote_write_url
   read -p "Enter username for remote write: " remote_write_username
