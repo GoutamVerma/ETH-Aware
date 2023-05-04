@@ -7,14 +7,13 @@ cd monitor
 #Download curl
 sudo apt install curl
 
-# Download Node Exporter if it doesn't exist
 if [ ! -d "prometheus-2.44.0-rc.1.linux-amd64" ]; then
    curl -LO https://github.com/prometheus/prometheus/releases/download/v2.44.0-rc.1/prometheus-2.44.0-rc.1.linux-amd64.tar.gz
    tar xvfz prometheus-2.44.0-rc.1.linux-amd64.tar.gz
    rm -rf prometheus-2.44.0-rc.1.linux-amd64.tar.gz
 fi
 
-
+# Download Node Exporter if it doesn't exist
 if [ ! -d "node_exporter-1.5.0.linux-amd64" ]; then
    curl -LO https://github.com/prometheus/node_exporter/releases/download/v1.5.0/node_exporter-1.5.0.linux-amd64.tar.gz
    tar xvfz node_exporter-1.5.0.linux-amd64.tar.gz
@@ -77,10 +76,10 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9100"]
 
-  - job_name: 'pushgateway'
-    honor_labels: true
+  - job_name: "geth"
     static_configs:
-    - targets: ['localhost:9091']
+      - targets: ["localhost:6060"]
+    metrics_path: "/debug/metrics/prometheus"
     
 remote_write:
 - url: ${remote_write_url}
