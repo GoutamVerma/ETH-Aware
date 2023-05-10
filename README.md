@@ -17,7 +17,11 @@ ETH Aware is monitoring tool designed to monitor a Ethreum node(including nether
 ```
     $ cd ETH-Aware
 ```
-3. Run the installation script:
+3. Give executable permission to a script file "script.sh"
+```
+    $ chmod +x script.sh
+```
+4. Run the installation script:
 ```
     $ ./script.sh
 ```
@@ -49,6 +53,9 @@ To use an ETH-Aware dashboard in your Grafana Cloud instance, follow these steps
 
 6. Customize the dashboard as needed. You can add or remove panels, change the display options, and more.
 
+## Demo Video
+
+https://github.com/GoutamVerma/ETH-Aware/assets/66783850/31a8799b-c3fa-42d7-86ed-ae155ea91f7f
 
 ## Troubleshoot
 
@@ -67,9 +74,6 @@ This monitoring tool provides the following features:
 
 - If you want to remove a dashboard, you can click on the gear icon in the top-right corner of the dashboard and select "Delete".
 
-## Demo Video
-
-embedded youtube link (soon).
 
 ## Contributing
 
