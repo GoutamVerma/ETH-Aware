@@ -17,7 +17,11 @@ ETH Aware is monitoring tool designed to monitor a Ethreum node(including nether
 ```
     $ cd ETH-Aware
 ```
-3. Run the installation script:
+3. Give executable permission to a script file "script.sh"
+```
+    $ chmod +x script.sh
+```
+4. Run the installation script:
 ```
     $ ./script.sh
 ```
