@@ -53,7 +53,6 @@ if [[ $custom_choice == "y" || $custom_choice == "Y" ]]; then
   read -p "Enter remote write URL: " remote_write_url
   read -p "Enter remote write username: " remote_write_username
   read -p "Enter remote write password: " remote_write_password
-  ls
   cd ..
   cat ./Monitor/Other/prometheus.yml | sed "s/\${metrics_path}/$metrics_path/g;s/\${metrics_address}/$metrics_address/g;s/\${remote_write_url}/$remote_write_url/g;s/\${remote_write_username}/$remote_write_username/g;s/\${remote_write_password}/$remote_write_password/g" > ./monitor/prometheus-2.44.0-rc.1.linux-amd64/prometheus.yml
 
