@@ -39,7 +39,7 @@ elif [ $client_choice == 4 ]; then
 else
   echo "Invalid choice"
   exit 1
-fi"
+fi
 
 read -p "Do you want to provide custom config details? (y/n): " custom_choice
 
@@ -53,20 +53,22 @@ if [[ $custom_choice == "y" || $custom_choice == "Y" ]]; then
   read -p "Enter remote write URL: " remote_write_url
   read -p "Enter remote write username: " remote_write_username
   read -p "Enter remote write password: " remote_write_password
-  cat ./Monitor/Other/prometheus.yml | sed "s/\${metrics_path}/$metrics_path/g;s/\${metrics_address}/$metrics_address/g;s/\${remote_write_url}/$remote_write_url/g;s/\${remote_write_username}/$remote_write_username/g;s/\${remote_write_password}/$remote_write_password/g" > ./prometheus-2.44.0-rc.1.linux-amd64/prometheus.yml
+  ls
+  cd ..
+  cat ./Monitor/Other/prometheus.yml | sed "s/\${metrics_path}/$metrics_path/g;s/\${metrics_address}/$metrics_address/g;s/\${remote_write_url}/$remote_write_url/g;s/\${remote_write_username}/$remote_write_username/g;s/\${remote_write_password}/$remote_write_password/g" > ./monitor/prometheus-2.44.0-rc.1.linux-amd64/prometheus.yml
 
 elif [[ $custom_choice == "n" || $custom_choice == "N" ]]; then
   read -p "Enter remote write URL: " remote_write_url
   read -p "Enter remote write username: " remote_write_username
   read -p "Enter remote write password: " remote_write_password
-  cat ./Monitor/$client_name/prometheus.yml | sed "s/\${remote_write_url}/$remote_write_url/g;s/\${remote_write_username}/$remote_write_username/g;s/\${remote_write_password}/$remote_write_password/g" > ./prometheus-2.44.0-rc.1.linux-amd64/prometheus.yml
+  cd ..
+  cat ./Monitor/$client_name/prometheus.yml | sed "s/\${remote_write_url}/$remote_write_url/g;s/\${remote_write_username}/$remote_write_username/g;s/\${remote_write_password}/$remote_write_password/g" > ./monitor/prometheus-2.44.0-rc.1.linux-amd64/prometheus.yml
 fi
 
 # Start Prometheus and Node Exporter
 cd prometheus-2.44.0-rc.1.linux-amd64 
 ./prometheus &
 cd ..
-sleep 10
 ./node_exporter-1.5.0.linux-amd64/node_exporter &
 
 echo "Prometheus and Node Exporter have been started."
