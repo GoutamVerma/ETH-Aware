@@ -17,8 +17,6 @@ To configure remote write in Prometheus with Grafana Cloud, follow these steps:
 1. Open the Prometheus configuration file (prometheus.yml) in a text editor.
 2. Add the following lines to the configuration file to enable remote write:
 ```
-yaml
-Copy code
 remote_write:
   - url: <remote-write-url>
     basic_auth:
