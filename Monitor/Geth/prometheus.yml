@@ -16,5 +16,5 @@ scrape_configs:
 remote_write:
 - url: ${remote_write_url}
   basic_auth:
-    username: remote_write_username
-    password: remote_write_password
+    username: ${remote_write_username}
+    password: ${remote_write_password}
