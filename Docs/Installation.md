@@ -15,13 +15,13 @@
 3. Give executable permission to the `script.sh` file:
 
     ```
-    $ chmod +x script.sh
+    $ chmod +x installation.sh
     ```
 
 4. Run the installation script:
 
     ```
-    $ ./script.sh
+    $ ./installation.sh
     ```
 
     During the installation process, the script will ask for the following information:
