@@ -65,6 +65,38 @@ This bash script are assuming that your Ethereum client are already exposing the
 - Geth : https://localhost:6060/debug/metrics/prometheus
 - Besu : https://localhost:9545/metrics
 - Erigon : https://localhost:6060/debug/metrics/prometheus
+
+## Directory Structure 
+```
+    ETH-Aware/
+    ├── Dashboards/
+    │   ├── besu.json
+    │   ├── erigon.json
+    │   ├── geth.json
+    │   ├── nethermind.json
+    │   └── system-usage.json
+    ├── Docs/
+    │   ├── Import-dashboards.md
+    │   ├── Installation.md
+    │   ├── add-ethereum-client.md
+    │   ├── remote-write.md
+    │   └── README.md
+    ├── Monitor/
+    │   ├── Besu/
+    │   │   └── prometheus.yml
+    │   ├── Erigon/
+    │   │   └── prometheus.yml
+    │   ├── Geth/
+    │   │   └── prometheus.yml
+    │   ├── Nethermind/
+    │   │   └── prometheus.yml
+    │   └── Other/
+    │       └── prometheus.yml
+    ├── Snapshots
+    ├── License.txt
+    ├── README.md
+    └── installation.sh
+```
 ## Features
 This monitoring tool provides the following features:
 - Real-time monitoring of Nethermind node performance and system metrics.
