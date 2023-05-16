@@ -64,6 +64,7 @@ elif [[ $custom_choice == "n" || $custom_choice == "N" ]]; then
   cat ./Monitor/$client_name/prometheus.yml | sed "s/\${remote_write_url}/$remote_write_url/g;s/\${remote_write_username}/$remote_write_username/g;s/\${remote_write_password}/$remote_write_password/g" > ./monitor/prometheus-2.44.0-rc.1.linux-amd64/prometheus.yml
 fi
 
+sleep 5
 # Start Prometheus and Node Exporter
 cd monitor/prometheus-2.44.0-rc.1.linux-amd64 
 ./prometheus &
