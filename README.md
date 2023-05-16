@@ -56,7 +56,10 @@ To use an ETH-Aware dashboard in your Grafana Cloud instance, follow these steps
 
 ## Demo Video
 
-https://github.com/GoutamVerma/ETH-Aware/assets/66783850/31a8799b-c3fa-42d7-86ed-ae155ea91f7f
+
+https://github.com/GoutamVerma/ETH-Aware/assets/66783850/8e88c73b-f1f3-4f2a-af6d-e481a86ad051
+
+
 
 ## Troubleshoot
 
