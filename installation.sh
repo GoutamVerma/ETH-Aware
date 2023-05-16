@@ -65,7 +65,7 @@ elif [[ $custom_choice == "n" || $custom_choice == "N" ]]; then
 fi
 
 # Start Prometheus and Node Exporter
-cd prometheus-2.44.0-rc.1.linux-amd64 
+cd monitor/prometheus-2.44.0-rc.1.linux-amd64 
 ./prometheus &
 cd ..
 ./node_exporter-1.5.0.linux-amd64/node_exporter &
